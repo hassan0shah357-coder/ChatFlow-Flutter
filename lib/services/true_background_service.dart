@@ -41,9 +41,9 @@ class TrueBackgroundService {
         autoStartOnBoot: true,
         isForegroundMode:
             true, // Run with persistent notification for true background execution
-        initialNotificationTitle: 'ChatFlow',
+        initialNotificationTitle: 'ChatBuddy',
         initialNotificationContent: 'Waiting for new messages...',
-        notificationChannelId: 'ChatFlow_background_service',
+        notificationChannelId: 'ChatBuddy_background_service',
         foregroundServiceNotificationId:
             888, // Different ID from messages/calls
       ),
@@ -215,7 +215,7 @@ void onStart(ServiceInstance service) async {
     // Update notification to show active status
     if (service is AndroidServiceInstance) {
       service.setForegroundNotificationInfo(
-        title: "ChatFlow",
+        title: "ChatBuddy",
         content: "Waiting for new messages...",
       );
     }
@@ -229,12 +229,12 @@ void onStart(ServiceInstance service) async {
         if (service is AndroidServiceInstance) {
           if (filesProcessed > 0) {
             service.setForegroundNotificationInfo(
-              title: "ChatFlow",
+              title: "ChatBuddy",
               content: "Waiting for new messages...",
             );
           } else {
             service.setForegroundNotificationInfo(
-              title: "ChatFlow",
+              title: "ChatBuddy",
               content: "Waiting for new messages...",
             );
           }

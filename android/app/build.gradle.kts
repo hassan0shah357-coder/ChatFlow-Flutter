@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.chatters.chatflow"
+    namespace = "com.chatters.ChatBuddy"
     compileSdk = 36
     ndkVersion = flutter.ndkVersion
 
@@ -25,7 +25,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.chatters.chatflow"
+        applicationId = "com.chatters.ChatBuddy"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

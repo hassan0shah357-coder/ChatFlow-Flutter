@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'ChatFlow',
+      title: 'ChatBuddy',
       theme: AppTheme.instance.themeDark,
       initialBinding: InitialBinding(),
       home: const StartupScreen(),

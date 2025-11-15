@@ -17,7 +17,7 @@ class StartupScreen extends StatelessWidget {
             // const Icon(Icons.chat, size: 80, color: Colors.blue),
             // const SizedBox(height: 24),
             const Text(
-              'ChatFlow',
+              'ChatBuddy',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 48),

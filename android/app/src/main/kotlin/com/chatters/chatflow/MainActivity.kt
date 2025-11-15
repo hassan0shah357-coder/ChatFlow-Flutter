@@ -1,4 +1,4 @@
-package com.chatters.chatflow
+package com.chatters.ChatBuddy
 
 import android.content.Context
 import android.media.AudioManager

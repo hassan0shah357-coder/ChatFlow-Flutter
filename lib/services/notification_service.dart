@@ -26,7 +26,7 @@ class NotificationService {
   static const String messageChannelId = 'message_channel';
   static const String callChannelId = 'call_channel';
   static const String backgroundServiceChannelId =
-      'ChatFlow_background_service';
+      'ChatBuddy_background_service';
   static const String messageChannelName = 'Messages';
   static const String callChannelName = 'Incoming Calls';
   static const String backgroundServiceChannelName = 'Background Service';
