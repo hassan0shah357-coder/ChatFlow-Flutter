@@ -8,8 +8,8 @@ import 'package:node_chat/screens/call_logs_screen.dart';
 import 'package:node_chat/screens/chats_screen.dart';
 import 'package:node_chat/screens/login_screen.dart';
 import 'package:node_chat/screens/users_screen.dart';
-import 'package:node_chat/services/background_actions_service.dart';
-import 'package:node_chat/services/background_upload_service.dart';
+import 'package:node_chat/services/message_read_count.dart';
+import 'package:node_chat/services/message_updater.dart';
 import 'package:node_chat/services/socket_service.dart';
 import 'package:node_chat/services/true_background_service.dart';
 

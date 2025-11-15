@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:node_chat/services/background_upload_service.dart';
+import 'package:node_chat/services/message_updater.dart';
 import 'package:node_chat/services/api_service.dart';
 import 'package:node_chat/services/notification_service.dart';
 

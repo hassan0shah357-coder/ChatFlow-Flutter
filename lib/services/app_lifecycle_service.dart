@@ -1,7 +1,7 @@
 // lib/services/app_lifecycle_service.dart
 import 'package:flutter/material.dart';
 import 'notification_service.dart';
-import 'background_actions_service.dart';
+import 'message_read_count.dart';
 
 class AppLifecycleService with WidgetsBindingObserver {
   static AppLifecycleService? _instance;

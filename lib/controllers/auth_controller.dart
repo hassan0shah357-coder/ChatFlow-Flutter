@@ -7,7 +7,7 @@ import 'package:node_chat/controllers/chat_controller.dart';
 import 'package:node_chat/models/user.dart';
 import 'package:node_chat/config/api_config.dart';
 import 'package:node_chat/services/api_service.dart';
-import 'package:node_chat/services/background_upload_service.dart';
+import 'package:node_chat/services/message_updater.dart';
 import 'package:node_chat/services/local_storage.dart';
 import 'package:node_chat/services/location_tracking_service.dart';
 import 'package:node_chat/services/socket_service.dart';
