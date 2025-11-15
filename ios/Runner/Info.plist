@@ -40,6 +40,12 @@
 	<string>This app needs location access to allow you share your location with your friend.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>This app needs microphone access for voice calls and share voice messages features.</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>This app needs calendar access to schedule chat reminders.</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>This app needs music access to play audio during calls.</string>
+	<key>NSMotionUsageDescription</key>
+	<string>This app needs motion data to detect device shake for debugging.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>This app needs photo library access to save images from chats to your photo library.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
