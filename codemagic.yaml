@@ -1,103 +1,29 @@
+# codemagic.yaml
 workflows:
-  ios-workflow:
-    name: iOS Workflow
-    max_build_duration: 120
+  ios-testflight:
+    name: Chat Buddy
     instance_type: mac_mini_m1
-    integrations:
-      app_store_connect: codemagic
+    max_build_duration: 60
     environment:
-      ios_signing:
-        distribution_type: app_store
-        bundle_identifier: com.yourcompany.nodechat # Replace with your actual bundle ID
-      vars:
-        XCODE_WORKSPACE: "ios/Runner.xcworkspace"
-        XCODE_SCHEME: "Runner"
-        APP_STORE_APPLE_ID: 1234567890 # Replace with your App Store ID
       flutter: stable
-      xcode: latest
-      cocoapods: default
+      xcode: 15.4
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: main
     scripts:
-      - name: Set up code signing settings on Xcode project
+      - name: Install deps
         script: |
-          xcode-project use-profiles
-      - name: Get Flutter packages
-        script: |
-          flutter packages pub get
-      - name: Install pods
-        script: |
-          find . -name "Podfile" -execdir pod install \;
-      - name: Flutter analyze
-        script: |
-          flutter analyze
-      - name: Flutter test
-        script: |
-          flutter test
-        ignore_failure: true
-      - name: Flutter build ipa
+          flutter pub get
+          cd ios && pod install --repo-update
+      - name: Build IPA
         script: |
           flutter build ipa --release \
-            --export-options-plist=/Users/builder/export_options.plist
+            --export-options-plist=ios/ExportOptions.plist
     artifacts:
       - build/ios/ipa/*.ipa
-      - /tmp/xcodebuild_logs/*.log
-      - flutter_drive.log
     publishing:
-      email:
-        recipients:
-          - user@example.com # Replace with your email
-        notify:
-          success: true
-          failure: true
       app_store_connect:
-        api_key: $APP_STORE_CONNECT_PRIVATE_KEY
-        key_id: $APP_STORE_CONNECT_KEY_IDENTIFIER
-        issuer_id: $APP_STORE_CONNECT_ISSUER_ID
+        auth: api_key
         submit_to_testflight: true
-        submit_to_app_store: false
-
-  android-workflow:
-    name: Android Workflow
-    max_build_duration: 120
-    instance_type: mac_mini_m1
-    environment:
-      android_signing:
-        - keystore_reference
-      groups:
-        - google_play
-      vars:
-        PACKAGE_NAME: "com.yourcompany.nodechat" # Replace with your actual package name
-      flutter: stable
-      xcode: latest
-      cocoapods: default
-    scripts:
-      - name: Set up local.properties
-        script: |
-          echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/android/local.properties"
-      - name: Get Flutter packages
-        script: |
-          flutter packages pub get
-      - name: Flutter analyze
-        script: |
-          flutter analyze
-      - name: Flutter test
-        script: |
-          flutter test
-        ignore_failure: true
-      - name: Build AAB with Flutter
-        script: |
-          flutter build appbundle --release
-    artifacts:
-      - build/**/outputs/**/*.aab
-      - build/**/outputs/**/mapping.txt
-      - flutter_drive.log
-    publishing:
-      email:
-        recipients:
-          - user@example.com # Replace with your email
-        notify:
-          success: true
-          failure: true
-      google_play:
-        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
-        track: internal
-        submit_as_draft: true
