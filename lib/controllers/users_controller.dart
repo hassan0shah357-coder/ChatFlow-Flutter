@@ -17,7 +17,7 @@ class UsersController extends GetxController {
     super.onInit();
     searchController.addListener(() {
       // searchQuery.value = searchController.text;
-      searchQuery.value = '';
+      searchQuery.value = searchController.text;
       if (searchController.text.isNotEmpty) {
         _chatController.fetchUsers();
       }
@@ -79,3 +79,4 @@ class UsersController extends GetxController {
     await _chatController.fetchUsers();
   }
 }
+
